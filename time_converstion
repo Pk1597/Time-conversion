@@ -1,0 +1,19 @@
+#defining the timeConversion function with string as input argument
+def timeConversion(s):
+    #extracting the forenoon or afternoon information
+    f_a=s[2][2:4]
+    # if it is forenoon print as it is expect when 12 AM
+    if(f_a=='AM'):
+        if(int(s[0])==12):
+            s[0]='00'
+    #else statement add 12 hrs if time not 12Pm
+    else:
+        if(int(s[0])!=12):
+            s[0] = str(int(s[0])+12)
+    rail_converted=s[0]+":"+s[1]+":"+s[2][0:2]
+    return rail_converted
+#getting the time string
+s = input().split(':')
+# assigning the string of the function to result
+result = timeConversion(s)
+print(result)
